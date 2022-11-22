@@ -1,0 +1,82 @@
+
+p.err{
+  color: red;
+  margin: 0%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffeed0;
+}
+
+@font-face {
+  font-family: duhai;
+  src: url('./Fonts/Duhai.ttf');
+}
+@font-face {
+  font-family: vinegar;
+  src: url('./Fonts/Vinegar.otf');
+}
+
+h2{
+  font-family: vinegar;
+  font-size: xxx-large;
+}
+
+.responsive{
+  width: 100%;
+  height: auto;
+}
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  
+.header1 {
+    color: rgb(12, 168, 98);
+    background-color: blue;
+    background-image: url('../static/bookspic.jpg');
+    background-position-y: 50%;
+    background-position-x: 60%;
+    background-size: 100%;
+    text-align: center;
+    padding: 60px;
+    font-size: x-large;
+    font-family: duhai;
+}
+
+a:link {
+  color: #F5EDDC;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #F5EDDC;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(227, 87, 12);
+  background-color: transparent;
+  text-decoration: underline;
+}
+

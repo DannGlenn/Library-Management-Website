@@ -1,0 +1,113 @@
+{
+    "books": [
+        {
+            "name": "Green Mile",
+            "author": "Stephan King",
+            "year_published": 1996,
+            "type": 3
+        },
+        {
+            "name": "1984",
+            "author": "George Orwell",
+            "year_published": 1948,
+            "type": 2
+        },
+        {
+            "name": "Alice in Wonderland",
+            "author": "Lewis Carroll",
+            "year_published": 1865,
+            "type": 1
+        },
+        {
+            "name": "I, Robot",
+            "author": "Isaac Asimov",
+            "year_published": 1950,
+            "type": 2
+        },
+        {
+            "name": "Fight Club",
+            "author": "Chuck Palahniuk",
+            "year_published": 1996,
+            "type": 3
+        },
+        {
+            "name": "The Lord of the Rings",
+            "author": "J. R. R. Tolkien",
+            "year_published": 1954,
+            "type": 1
+        },
+        {
+            "name": "Treasure Island",
+            "author": "Robert Louis Stevenson",
+            "year_published": 1882,
+            "type": 1
+        }
+    ],
+    "clients": [
+        {
+            "name": "Amy",
+            "city": "Paris",
+            "age": 26
+        },
+        {
+            "name": "Bob",
+            "city": "Berlin",
+            "age": 31
+        },
+        {
+            "name": "Tony",
+            "city": "Vienna",
+            "age": 17
+        },
+        {
+            "name": "Elenor",
+            "city": "Madrid",
+            "age": 24
+        },
+        {
+            "name": "Sam",
+            "city": "Dallas",
+            "age": 50
+        },
+        {
+            "name": "Robert",
+            "city": "London",
+            "age": 42
+        },
+        {
+            "name": "Lisa",
+            "city": "Amsterdam",
+            "age": 80
+        }
+    ],
+    "logs": [
+        {
+            "client_id": 1,
+            "book_id": 5
+        },
+        {
+            "client_id": 3,
+            "book_id": 2
+        },
+        {
+            "client_id": 5,
+            "book_id": 3
+        },
+        {
+            "client_id": 3,
+            "book_id": 5
+        },
+        {
+            "client_id": 4,
+            "book_id": 1
+        },
+        {
+            "client_id": 2,
+            "book_id": 3
+        },
+        {
+            "client_id": 1,
+            "book_id": 4
+        }
+    ]
+}

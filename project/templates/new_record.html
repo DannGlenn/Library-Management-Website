@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+<!-- Form for adding new records -->
+{% block content %}
+
+{% if adding == 'client' %}
+{% set att_arr = [['Name', 'text', 0, 0], ['City', 'text', 0, 0], ['Age', 'number', 16, 120]] %}
+{% endif %}
+
+{% if adding == 'book' %}
+{% set att_arr = [['Name', 'text', 0, 0], ['Author', 'text', 0, 0], ['Year Published', 'number', 0, 2022], ['Type', 'number', 1, 3]] %}
+{% endif %}
+
+{% if adding == 'log' %}
+{% set att_arr = [['Client ID', 'number', 1, null], ['Book ID', 'number', 1, null]] %}
+{% endif %}
+
+<form action="/{{adding}}/" method='POST'>
+{% for att in att_arr %}
+<div class="mb-3">
+    <label for="newRecord" class="form-label">{{att[0]}}</label>
+    <input type={{att[1]}} list="records" min={{att[2]}} max={{att[3]}} class="form-control" autocomplete="off" name="attribute" required>
+</div>
+{% endfor %}
+<button type="submit" class="btn btn-success">Add</button>
+</form>
+<p class="err">{{message}}</p>
+<div class="col-sm-12">
+    <br>
+</div>
+{% endblock %}
+
+{% set pic = 'new_record.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}
+
+
+

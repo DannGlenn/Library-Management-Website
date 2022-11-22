@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div>
+    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">It looks like another happy customer has returned a book!</h3>
+    <label for="fname">Log ID</label>
+    <input type="number" list="records" min=1 id="fname" autocomplete="off" name="attribute">
+    <datalist id="records">
+        {% for obj in id_name_list %}
+        <option value="{{obj[0]}}" id="optn">{{obj[1]}} returning {{obj[2]}}</option>
+        {% endfor %}
+    </datalist>
+    <button type="button" onclick="update_record()" class="btn btn-danger">Update</button>
+</div>
+<p class="err" id="err"></p><br><br>
+<p>Tip: Be kind and ask the client if he enjoyed the book</p>
+<p>If the book was overdued, remind the client to abide next time!</p>
+
+<script>
+    function update_record() {
+        let id = document.getElementById("fname").value;
+        fetch(`/log/${id}`, { method: 'PUT' }).then((response) => response.text()).then((text) => {
+            document.getElementById("err").innerText = text;
+        });
+    }
+
+</script>
+
+{% endblock %}
+{% set pic = 'update_record.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}

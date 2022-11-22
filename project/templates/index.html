@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block index %}
+<!-- quick selection menu -->
+<div class="col-sm-4">
+  <h2>About</h2>
+  <p>This project was written by Daniel Glencer and submitted for assesment as part of 'Full stack Python' course, class 7731/12 by John Bryce Training.  </p>
+  <h3 class="mt-4" style="font-family: vinegar;">Technologies used:</h3>
+  <p>The program utilizes Python3 as the logic to mediate between the database which runs on Sqlite3 and GUI which is written using Jinja2 template engine.<br>
+  Flask acting as the main framework, and Sqlalchemy as ORM
+  </p>
+
+</div>
+<div class="col-sm-4">
+  <h2>Usage</h2>
+  <h5>Instructions</h5>
+  <p>Idealy, you'd want to start by adding clients and books to your database</p>
+  <p>Once the previous step is completed you can go ahead and create new logs whenever a book is getting borrowed.<br>
+  The borrow date would get recorded automatically whenever a new log is created as well as the return date whenever an open log is closed
+  </p>
+</div>
+<div class="col-sm-4">
+  <h2>Notes</h2>
+  <p>The overdue attribute of logs gets updated on startup and at 12am while at runtime.</p>
+  <p>With that being said, looking up overdued logs directly from the database may not produce accurate results</p>
+  <p>Searching records is case sensitive. for ease of use, please use the autocomplete suggestions</p>
+</div>
+{% endblock %}
+
+{% set pic = 'index.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}

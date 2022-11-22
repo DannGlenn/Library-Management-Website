@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+<!-- the following if statements keep the page code generic by injecting the apropriate values for different use cases -->
+{% if searching == 'client' %}
+{% set prompt = "Please type in a client's name:" %}
+{% set request_path = host_port + '/client/' %}
+{% endif %}
+
+{% if searching == 'book' %}
+{% set prompt = "Please type in a book's name:" %}
+{% set request_path = host_port + '/book/' %}
+{% endif %}
+
+{% block content %}
+<!-- search by name form -->
+<form action="/{{searching}}/" method="GET">
+    <div class="mb-3">
+        <label class="form-label">{{prompt}}</label>
+        <input type="text" list="records" autocomplete="off" class="form-control" name="searchRecordName" required>
+        <datalist id="records">
+            {% for name in name_list %}
+            <option value="{{name}}">
+            {% endfor %}
+        </datalist>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<div class="col-sm-12">
+    <br>
+</div>
+
+{% endblock %}
+{% set pic = 'search.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}

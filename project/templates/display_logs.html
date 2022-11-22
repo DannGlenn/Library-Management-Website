@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% set col_head_arr = ['Client name', 'Book name', 'Type', 'Date of borrow', 'Date of return', 'Overdue'] %}
+
+{% block result %}
+<table>
+    <!-- creating the title row -->
+    <tr>
+        <th>ID</th>
+        {% for head in col_head_arr %}
+        <th>{{head}}</th>
+        {% endfor %}
+    </tr>
+    <!-- creating each individual row -->
+    {% for log, client, book in records %}
+    <!-- if there's a return date, asssign vaule and convert to a nice date format. otherwise leave empty -->
+    {% if log.return_date != None %}
+    {% set return_date = log.return_date.strftime("%d/%m/%Y") %}
+    {% endif %}
+    {% set col_arr = [client.name, book.name, book.type, log.borrow_date.strftime("%d/%m/%Y"), return_date, log.overdue] %}
+        
+    <!-- creating each individual cell in a row -->
+    <tr>
+        <td>{{log.id}}</td>
+        {% for head in col_arr %}
+        <td>{{head}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+{% set pic = 'display_logs.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}

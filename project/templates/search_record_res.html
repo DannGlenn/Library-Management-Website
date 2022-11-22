@@ -1,0 +1,65 @@
+{% if routed_from_display_all == True %}
+{% extends "layout.html" %}
+{% else %}
+{% extends "search_record.html" %}
+{% endif %}
+
+{% if searching == 'client' %}
+{% set col_head_arr = ['Name', 'City', 'Age'] %}
+{% endif %}
+
+{% if searching == 'book' %}
+{% set col_head_arr = ['Name', 'Author', 'Year Published', 'Type'] %}
+{% endif %}
+
+{% block result %}
+<table>
+    <!-- creating the title row -->
+    <tr>
+        <th>ID</th>
+        {% for head in col_head_arr %}
+        <th>{{head}}</th>
+        {% endfor %}
+        <th style="width:25%">Delete</th>
+    </tr>
+    <!-- outer loop for creating each individual row -->
+    {% for record in records %}
+
+    {% if searching == 'client' %}
+    {% set col_arr = [record.id, record.name, record.city, record.age] %}
+    {% endif %}
+
+    {% if searching == 'book' %}
+    {% set col_arr = [record.id, record.name, record.author, record.year_published, record.type] %}
+    {% endif %}
+
+    <tr>
+        <!-- inner loop for creating each individual cell in a row -->
+        {% for head in col_arr %}
+        <td>{{head}}</td>
+        {% endfor %}
+        <td>
+            <button type="button" onclick="delete_record('{{record.id}}', '{{loop.index}}')" class="btn btn-danger">Delete</button>
+            <p id="{{loop.index}}" class="err"></p>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<script>
+    // fetch request returns a response message from request method to ensure refresh occurs AFTER deletion
+    function delete_record(record_id, idx) {
+        fetch(`/{{searching}}/${record_id}`, { method: 'DELETE' }).then((response) => response.text()).then((text) => {
+            if (text == 'ok'){
+                window.location.reload()
+            }
+            else{
+                document.getElementById(idx).innerText = text;
+            }
+    });
+    }
+</script>
+{% endblock %}
+{% set pic = 'search_res.jpg' %}
+{% block bottompic %}
+{{ super() }}
+{% endblock %}
